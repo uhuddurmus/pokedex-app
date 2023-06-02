@@ -97,7 +97,7 @@ const PokemonPage = () => {
             <div
               className="text-primary ms-2"
               style={{
-                fontSize: "36px",
+                fontSize: "3vw",
                 fontStyle: "italic",
                 fontWeight: "bold",
               }}
@@ -109,7 +109,7 @@ const PokemonPage = () => {
           <div className="col-xl-8 text-center">
             <span
               style={{
-                fontSize: "40px",
+                fontSize: "3vw",
                 fontStyle: "italic",
                 fontWeight: "900",
               }}
@@ -127,7 +127,7 @@ const PokemonPage = () => {
                 <div className="row">
                   <div className="col-xl-6">
                     <div className="text-start mt-5 ms-5">
-                      <span style={{ fontWeight: "bolder" }}>
+                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Types')} 
                         <br />
@@ -145,7 +145,7 @@ const PokemonPage = () => {
 
                       <br />
 
-                      <span style={{ fontWeight: "bolder" }}>
+                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Abilities')} 
 
@@ -164,7 +164,7 @@ const PokemonPage = () => {
                       </span>
                       <br />
 
-                      <span style={{ fontWeight: "bolder" }}>
+                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Height')}
                         <br />
@@ -176,7 +176,7 @@ const PokemonPage = () => {
                   </div>
                   <div className="col-xl-6">
                     <div className="text-start mt-5 ms-5">
-                      <span style={{ fontWeight: "bolder" }}>
+                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Weight')}
                         <br />
@@ -188,7 +188,7 @@ const PokemonPage = () => {
                       <br />
                       <br />
 
-                      <span style={{ fontWeight: "bolder" }}>
+                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Moves')}
                         <br />

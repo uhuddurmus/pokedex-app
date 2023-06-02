@@ -64,9 +64,7 @@ const MainPage = () => {
   
   return (
     <>
-    <div className="h1 text-center">
-    {t('Welcome_to_React')}
-    </div>
+
       <div className="row">
         
         {data.map((p: Pokemon | undefined, index: number) =>{

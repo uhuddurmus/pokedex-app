@@ -44,26 +44,30 @@ export const LayoutAppBar: React.FC = () => {
       style={{ height: "66px" }}
       className={
         theme
-          ? "d-flex flex-row justify-content-between bg-dark"
-          : "d-flex flex-row justify-content-between bg-primary"
+          ? "d-flex row justify-content-between bg-dark"
+          : "d-flex row justify-content-between bg-primary"
       }
     >
+      <div className="col-xl-4">
       <img
         className=" m-1 "
         style={{ height: "56px" }}
         src={PokemonLogo}
         alt="pokemon logo"
       />
-      <div className=" my-auto me-4 mt-2 d-flex">
+      </div>
+      
+      <div className=" col-xl-4 my-auto me-4 mt-2 d-flex d-flex row">
         <></>
-
+        <div className="col-md-2">
         <button
           onClick={() => {
             navigate("/my-bag");
           }}
           className=" btn btn-secondary me-4"
+
           data-testid="envanter"
-          style={{ height: "40px" }}
+          style={{ height: "40px",width:'70px' ,overflow:'none'}}
         >
           <img
             className=""
@@ -71,11 +75,13 @@ export const LayoutAppBar: React.FC = () => {
             src={pokeball}
             alt="pokemon logo"
           />{" "}
-          {t('Inventory')} 
+          {/* {t('Inventory')}  */}
         </button>
-        <Dropdown>
+        </div>
+        <div className="col-md-2">
+        <Dropdown >
           <Dropdown.Toggle
-          className="me-4"
+          className=""
             variant="secondary"
             id="dropdown-basic"
             style={{ height: "40px" }}
@@ -83,7 +89,7 @@ export const LayoutAppBar: React.FC = () => {
             <span
               className={`fi fi-${currentLanguage?.country_code} mx-2`}
             ></span>
-            {t("language")}
+            
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -109,14 +115,19 @@ export const LayoutAppBar: React.FC = () => {
             ))}
           </Dropdown.Menu>
         </Dropdown>
-
+        </div>
+        <div className="col-md-2">
         <button
           onClick={toggleTheme}
           className={theme ? "btn btn-danger " : "btn btn-success "}
-          style={{ height: "40px" }}
+          style={{ height: "40px" ,overflow:'none',width:'70px'}}
         >
           {theme ? t('Dark_theme')  : t('Light_theme')}
         </button>
+        </div>
+        
+
+        
       </div>
     </div>
   );
