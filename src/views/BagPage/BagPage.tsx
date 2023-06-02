@@ -4,6 +4,7 @@ import { Pokemon } from "../../redux/types/Pokemon";
 import { getColorValueByKey } from "../../Theme/Colors";
 import ThemeConfig from "../../Theme";
 import AppStore from "../../redux/types/AppStore";
+import { useTranslation } from "react-i18next";
 
 const BagPage = () => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const BagPage = () => {
   }
   const [query, setQuery] = useState<string>("");
   const [bagData, setBagData] = useState<Array<Pokemon>>([]);
+  const { t } = useTranslation();
 
   const filteredData = React.useCallback((): Array<Pokemon> => {
     return bagData.filter(

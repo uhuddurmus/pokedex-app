@@ -36,7 +36,7 @@ export const PokemonPageControls: React.FC<PokemonPageControlsProps> = ({
         id={pokemonExistsInBag ? "added_in_bag" : "not_added_in_bag"}
         color={pokemonExistsInBag ? "secondary" : "primary"}
         onClick={handleBagPress}
-        className={pokemonExistsInBag ? "btn btn-danger mt-2 mb-0 float-end me-5" : "btn btn-success mt-2 mb-0 float-end me-5" }
+        className={pokemonExistsInBag ? "btn btn-danger" : "btn btn-success" }
       >
           {pokemonExistsInBag ? t('Release') : t('Catch') }
       </button>

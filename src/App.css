@@ -41,9 +41,7 @@ html, body {
   height: 100%;
 
 }
-#root div {margin: 0;
-  height: 100%;
-}
+
 :root {
   --code-color: darkred;
   --code-bg-color: transparent;
@@ -66,6 +64,9 @@ pre {
   padding: 8px 7px 5px 15px;
   margin: 0px 0px 0px 0px;
   border-radius: 7px;
+}
+.offcanvasNavbarDropdown-expand-xl{
+  min-height: 200px !important;
 }
 
 * {

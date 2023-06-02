@@ -53,7 +53,7 @@ const PokemonPage = () => {
     <>
       <div className="w-100">
         <div className="row d-flex justify-content-between">
-          <div className="col-2 ps-5">
+          <div className="col-md-2 text-center mt-2">
             <button
               data-testid="returnhome"
               onClick={() => {
@@ -75,7 +75,7 @@ const PokemonPage = () => {
               <span className="ms-1"> {t('Return_home')} </span>
             </button>
           </div>
-          <div className="col-2">
+          <div className="col-md-2 text-center mt-2">
             {selectedPokemon ? (
               <PokemonPageControls pokemon={selectedPokemon} />
             ) : null}
@@ -83,7 +83,7 @@ const PokemonPage = () => {
         </div>
       </div>
       <div
-        className="card m-5 p-5 mt-2 border-0 row d-flex"
+        className="card m-2 p-2 border-0 row d-flex"
         style={{ backgroundColor: theme ? "#585858" : "#f5f5f5" }}
       >
         <div className="row">
@@ -126,8 +126,8 @@ const PokemonPage = () => {
               <Tab eventKey="General" title={t('General')}>
                 <div className="row">
                   <div className="col-xl-6">
-                    <div className="text-start mt-5 ms-5">
-                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
+                    <div className="text-start ">
+                      <span style={{fontSize: "2vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Types')} 
                         <br />
@@ -145,7 +145,7 @@ const PokemonPage = () => {
 
                       <br />
 
-                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
+                      <span style={{fontSize: "2vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Abilities')} 
 
@@ -164,7 +164,7 @@ const PokemonPage = () => {
                       </span>
                       <br />
 
-                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
+                      <span style={{fontSize: "2vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Height')}
                         <br />
@@ -175,8 +175,8 @@ const PokemonPage = () => {
                     </div>
                   </div>
                   <div className="col-xl-6">
-                    <div className="text-start mt-5 ms-5">
-                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
+                    <div className="text-start">
+                      <span style={{fontSize: "2vw", fontWeight: "bolder" }}>
                         {" "}
                         {t('Weight')}
                         <br />
@@ -188,13 +188,13 @@ const PokemonPage = () => {
                       <br />
                       <br />
 
-                      <span style={{fontSize: "1vw", fontWeight: "bolder" }}>
+                      <span style={{fontSize: "2vw", fontWeight: "bolder" }}>
                         {" "}
-                        {t('Moves')}
+                        {t('Moves')} 
                         <br />
                         <div
                           className="mt-1"
-                          style={{ maxHeight: "150px", overflow: "scroll" }}
+                          style={{ maxHeight: "250px", overflow: "scroll" }}
                         >
                           {selectedPokemon?.moves.map((moves: any,index:number) => {
                             return (
