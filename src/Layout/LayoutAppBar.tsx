@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import PokemonLogo from "../assets/Images/pokemon_logo.png";
 import { ThemeContext } from "../App";
 import pokeball from "../assets/Images/pokeball.png";
+import sun from "../assets/Images/sun.png";
+import moon from "../assets/Images/moon.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
@@ -49,7 +51,12 @@ export const LayoutAppBar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Navbar key={"xl"} bg={theme ? "dark" : "light"} expand={"xl"} className="mb-3">
+    <Navbar
+      key={"xl"}
+      bg={theme ? "dark" : "light"}
+      expand={"xl"}
+      className="mb-3"
+    >
       <Container fluid>
         <Navbar.Brand>
           <img
@@ -64,10 +71,13 @@ export const LayoutAppBar: React.FC = () => {
           id={`offcanvasNavbar-expand-${"xl"}`}
           aria-labelledby={`offcanvasNavbarLabel-expand-${"xl"}`}
           placement="end"
+          className={theme ? "bg-dark" : "bg-light"}
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${"xl"}`}>
-              Pokêdex
+              <span className={theme ? "text-light" : "text-dark"}>
+                Pokêdex
+              </span>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
@@ -76,6 +86,7 @@ export const LayoutAppBar: React.FC = () => {
                 onClick={() => {
                   navigate("/my-bag");
                 }}
+                aria-label="Close"
               >
                 <img
                   className=""
@@ -83,15 +94,23 @@ export const LayoutAppBar: React.FC = () => {
                   src={pokeball}
                   alt="pokemon logo"
                 />
+                <span className={theme ? "text-white h6" : "text-dark h6"}>{t('Inventory')}</span>
               </Nav.Link>
-              <Nav.Link
-                                  onClick={toggleTheme}
-
-              >
-                <span className={theme ? " text-danger " : " text-success "}>
+              <Nav.Link onClick={toggleTheme}>
+                <span className={theme ? " text-warning h6" : " text-dark h6"}>
+                {theme ? <img
+                  className=""
+                  style={{ height: "25px" }}
+                  src={moon}
+                  alt="moon logo"
+                /> : <img
+                className=""
+                style={{ height: "25px" }}
+                src={sun}
+                alt="sun logo"
+              />}
                 {theme ? t("Dark_theme") : t("Light_theme")}
                 </span>
-                  
               </Nav.Link>
               <NavDropdown
                 title={
@@ -133,88 +152,6 @@ export const LayoutAppBar: React.FC = () => {
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
-    // <div
-    //   style={{ height: "66px" }}
-    //   className={
-    //     theme
-    //       ? "d-flex row justify-content-between bg-dark"
-    //       : "d-flex row justify-content-between bg-primary"
-    //   }
-    // >
-    //   <div className="col-xl-4">
-    //
-    //   </div>
 
-    //   <div className=" col-xl-4 my-auto me-4 mt-2 d-flex d-flex row">
-    //     <></>
-    //     <div className="col-md-2">
-    //     <button
-    //       onClick={() => {
-    //         navigate("/my-bag");
-    //       }}
-    //       className=" btn btn-secondary me-4"
-
-    //       data-testid="envanter"
-    //       style={{ height: "40px",width:'70px' ,overflow:'none'}}
-    //     >
-    //       <img
-    //         className=""
-    //         style={{ height: "25px" }}
-    //         src={pokeball}
-    //         alt="pokemon logo"
-    //       />{" "}
-    //       {/* {t('Inventory')}  */}
-    //     </button>
-    //     </div>
-    //     <div className="col-md-2">
-    //     <Dropdown >
-    //       <Dropdown.Toggle
-    //       className=""
-    //         variant="secondary"
-    //         id="dropdown-basic"
-    //         style={{ height: "40px" }}
-    //       >
-    //         <span
-    //           className={`fi fi-${currentLanguage?.country_code} mx-2`}
-    //         ></span>
-
-    //       </Dropdown.Toggle>
-
-    //       <Dropdown.Menu>
-    //         {languages.map(({ code, name, country_code},index :number) => (
-    //           <>
-    //             <Dropdown.Item
-    //               key={index}
-    //               tabindex={index}
-    //               disabled={currentLanguageCode === code}
-    //               onClick={() => {
-    //                 i18next.changeLanguage(code);
-    //               }}
-    //             >
-    //               <span
-    //                 className={`fi fi-${country_code} mx-2`}
-    //                 style={{
-    //                   opacity: currentLanguageCode === code ? 0.5 : 1,
-    //                 }}
-    //               ></span>
-    //               {name}
-    //             </Dropdown.Item>
-    //           </>
-    //         ))}
-    //       </Dropdown.Menu>
-    //     </Dropdown>
-    //     </div>
-    //     <div className="col-md-2">
-    //     <button
-    //       onClick={toggleTheme}
-    //       className={theme ? "btn btn-danger " : "btn btn-success "}
-    //       style={{ height: "40px" ,overflow:'none',width:'70px'}}
-    //     >
-    //       {theme ? t('Dark_theme')  : t('Light_theme')}
-    //     </button>
-    //     </div>
-
-    //   </div>
-    // </div>
   );
 };
