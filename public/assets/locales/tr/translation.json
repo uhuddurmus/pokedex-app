@@ -1,0 +1,19 @@
+{
+    "Welcome_to_React": "Pokêdex'e Hoşgeldiniz",
+    "language":"Türkçe",
+    "country_code":"tr",
+    "Inventory":"Envanter",
+    "Light_theme":"Açık Tema",
+    "Dark_theme":"Koyu Tema",
+    "Return_home":"Anasayfaya Dön",
+    "General":"Genel",
+    "Stats":"İstatistikler",
+    "Release":"Pokêmonu Bırak",
+    "Catch":"Pokêmonu Yakala",
+    "Types":"Türler",
+    "Abilities":"Yetenekler",
+    "Height":"Uzunluk",
+    "Weight":"Ağırlık",
+    "Moves":"Hareketleri",
+    "Load":"Daha Fazla"
+} 

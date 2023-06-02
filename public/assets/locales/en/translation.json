@@ -1,0 +1,19 @@
+{
+    "Welcome_to_React": "Welcome to Pokêdex",
+    "language":"English",
+    "country_code":"en",
+    "Inventory":"Inventory",
+    "Light_theme":"Light Theme",
+    "Dark_theme":"Dark Theme",
+    "Return_home":"Return Home",
+    "General":"General",
+    "Stats":"Stats",
+    "Release":"Release pokêmon",
+    "Catch":"Catch Pokemon",
+    "Types":"Types",
+    "Abilities":"Abilities",
+    "Height":"Height",
+    "Weight":"Weight",
+    "Moves":"Moves",
+    "Load":"Load More"
+} 
