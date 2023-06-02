@@ -1,23 +1,30 @@
+import axios from "axios";
 
-import { create, ApiResponse } from "apisauce";
 
-const api = create({
-  baseURL: "https://pokeapi.co/api/v2",
+const baseURL = "https://pokeapi.co/api/v2";
+
+const axiosInstance = axios.create({
+  baseURL,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
   },
 });
 
-const filterResponse = (res: ApiResponse<any>) => {
-  if (res.ok) {
-    return res.data;
+const filterResponse = (response:any) => {
+  if (response.status >= 200 && response.status < 300) {
+    return response.data;
   }
-  throw new Error(res.problem);
+  throw new Error(response.statusText);
 };
 
-export async function pokeApiGet(path: string, params?: any) {
-  return api
-    .get(path, params)
-    .then((res: ApiResponse<any>) => filterResponse(res));
+export async function pokeApiGet(path:any, params:any) {
+  try {
+    const response = await axiosInstance.get(path, { params });
+    return filterResponse(response);
+
+  } catch (error) {
+    console.error('Hata:', error);
+    throw error;
+  }
 }

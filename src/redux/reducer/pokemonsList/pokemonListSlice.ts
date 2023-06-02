@@ -95,7 +95,7 @@ export const fetchPokemons = (): AppThunk => async (dispatch, getState) => {
     });
     for await (const [index, { url }] of res.results.entries()) {
       const pokemonId = Number(url.split("/").slice(-2)[0]);
-      const pokemon = await pokeApiGet(`pokemon/${pokemonId}`);
+      const pokemon = await pokeApiGet(`pokemon/${pokemonId}`,{});
       dispatch(getPokemonsReducer({ index, pokemon, numberOfEntries: 6 }));
     }
     dispatch(setPokemonsListSuccess({ hasMore: !!res.next }));
@@ -110,7 +110,7 @@ export const fetchPokemonsByIdOrName = (query: any): AppThunk => async (
   try {
     dispatch(resetPokemonsList());
     dispatch(preparePokemonsList({ numberOfEntries: 1 }));
-    const pokemon = await pokeApiGet(`pokemon/${query}`);
+    const pokemon = await pokeApiGet(`pokemon/${query}`,{});
     dispatch(getPokemonsReducer({ index: 0, pokemon, numberOfEntries: 1 }));
     dispatch(setPokemonsListSuccess({ hasMore: false }));
   } catch (err) {
