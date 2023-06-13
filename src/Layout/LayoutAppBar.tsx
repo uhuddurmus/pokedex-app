@@ -55,7 +55,8 @@ export const LayoutAppBar: React.FC = () => {
       key={"xl"}
       bg={theme ? "dark" : "light"}
       expand={"xl"}
-      className="mb-3"
+      className="mb-3 w-100"
+      collapseOnSelect={true}
     >
       <Container fluid>
         <Navbar.Brand>
@@ -66,7 +67,7 @@ export const LayoutAppBar: React.FC = () => {
             alt="pokemon logo"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${"xl"}`} />
+        <Navbar.Toggle className="bg-secondary" aria-controls={`offcanvasNavbar-expand-${"xl"}`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-${"xl"}`}
           aria-labelledby={`offcanvasNavbarLabel-expand-${"xl"}`}
@@ -94,22 +95,28 @@ export const LayoutAppBar: React.FC = () => {
                   src={pokeball}
                   alt="pokemon logo"
                 />
-                <span className={theme ? "text-white h6" : "text-dark h6"}>{t('Inventory')}</span>
+                <span className={theme ? "text-white h6" : "text-dark h6"}>
+                  {t("Inventory")}
+                </span>
               </Nav.Link>
               <Nav.Link onClick={toggleTheme}>
                 <span className={theme ? " text-warning h6" : " text-dark h6"}>
-                {theme ? <img
-                  className=""
-                  style={{ height: "25px" }}
-                  src={moon}
-                  alt="moon logo"
-                /> : <img
-                className=""
-                style={{ height: "25px" }}
-                src={sun}
-                alt="sun logo"
-              />}
-                {theme ? t("Dark_theme") : t("Light_theme")}
+                  {theme ? (
+                    <img
+                      className=""
+                      style={{ height: "25px" }}
+                      src={moon}
+                      alt="moon logo"
+                    />
+                  ) : (
+                    <img
+                      className=""
+                      style={{ height: "25px" }}
+                      src={sun}
+                      alt="sun logo"
+                    />
+                  )}
+                  {theme ? t("Dark_theme") : t("Light_theme")}
                 </span>
               </Nav.Link>
               <NavDropdown
@@ -152,6 +159,5 @@ export const LayoutAppBar: React.FC = () => {
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
-
   );
 };

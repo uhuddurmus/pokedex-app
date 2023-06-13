@@ -22,8 +22,6 @@ export const ThemeColors: ColorProps = {
   navBarColor: "#fafafa",
   screen: "#fcfcfc",
   transparent: "transparent",
-
-  /** Pokemon type colors - copied from pokemon related wiki **/
   bug: "#abc635",
   dragon: "#027dc7",
   electric: "#f9e16e",
@@ -60,10 +58,6 @@ for (const colorKey of colorKeys) {
   enhanceColor(Colors, colorKey);
 }
 
-/**
- * returns the color hex value when a key is specified
- * @param key
- */
 export const getColorValueByKey = (key: string) => {
   if (Colors.hasOwnProperty(key)) {
     return Colors[key];

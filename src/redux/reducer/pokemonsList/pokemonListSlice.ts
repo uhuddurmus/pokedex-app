@@ -17,12 +17,6 @@ const pokemonsListSlice = createSlice({
   name: "pokemonsList",
   initialState,
   reducers: {
-    resetPokemonsList(state) {
-      /** reset the list when needed
-       * (ex. when requesting single pokemon) **/
-      state.data = [];
-      state.offset = 0;
-    },
     /** set up state between calls **/
     preparePokemonsList(
       state,
@@ -76,7 +70,6 @@ const pokemonsListSlice = createSlice({
 });
 
 export const {
-  resetPokemonsList,
   preparePokemonsList,
   setPokemonsListSuccess,
   setPokemonsListFailure,
@@ -104,16 +97,4 @@ export const fetchPokemons = (): AppThunk => async (dispatch, getState) => {
   }
 };
 
-export const fetchPokemonsByIdOrName = (query: any): AppThunk => async (
-  dispatch
-) => {
-  try {
-    dispatch(resetPokemonsList());
-    dispatch(preparePokemonsList({ numberOfEntries: 1 }));
-    const pokemon = await pokeApiGet(`pokemon/${query}`,{});
-    dispatch(getPokemonsReducer({ index: 0, pokemon, numberOfEntries: 1 }));
-    dispatch(setPokemonsListSuccess({ hasMore: false }));
-  } catch (err) {
-    dispatch(setPokemonsListFailure({ err: JSON.stringify(err) }));
-  }
-};
+

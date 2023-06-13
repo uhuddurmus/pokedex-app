@@ -49,7 +49,7 @@ const BagPage = () => {
               onClick={() => {
                 navigate(`/`);
               }}
-              className="btn btn-primary mt-2 mb-0"
+              className="btn btn-primary m-auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

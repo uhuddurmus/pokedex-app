@@ -5,7 +5,6 @@ import { RootState } from "../../redux/rootReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchPokemonSpeciesById } from "../../redux/reducer/pokemonSpecies/pokemonSpeciesSlice";
-import { fetchPokemonsByIdOrName } from "../../redux/reducer/pokemonsList/pokemonListSlice";
 import { ThemeContext } from "../../App";
 import { Tab, Tabs } from "react-bootstrap";
 import { PokemonPageControls } from "./PokemonPageControl";
@@ -25,15 +24,10 @@ const PokemonPage = () => {
     (ps: PokemonSpecies) => ps && ps.id === Number(match?.id)
   );
   useEffect(() => {
-    fetchPokemonIfUnavailable();
     fetchPokemonSpeciesIfUnavailable();
   }, []);
 
-  const fetchPokemonIfUnavailable = () => {
-    if (!selectedPokemon) {
-      dispatch<any>(fetchPokemonsByIdOrName(match?.id));
-    }
-  };
+
 
   const fetchPokemonSpeciesIfUnavailable = () => {
     if (!selectedPokemonSpecies) {
@@ -59,7 +53,7 @@ const PokemonPage = () => {
               onClick={() => {
                 navigate(`/`);
               }}
-              className="btn btn-primary mt-2 mb-0"
+              className="btn btn-primary m-auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
